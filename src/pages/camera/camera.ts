@@ -13,7 +13,7 @@ export class CameraPage implements OnInit {
               private camera: Camera) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const cameraOptions: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,

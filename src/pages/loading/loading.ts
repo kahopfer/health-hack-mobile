@@ -1,25 +1,16 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LoadingPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Component, OnInit} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
 @IonicPage()
 @Component({
   selector: 'page-loading',
   templateUrl: 'loading.html',
 })
-export class LoadingPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+export class LoadingPage implements OnInit {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoadingPage');
+  public ngOnInit(): void {
   }
-
 }

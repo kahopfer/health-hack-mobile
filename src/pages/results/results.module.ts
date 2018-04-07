@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { ResultsPage } from './results';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {ResultsPage} from './results';
 
 @NgModule({
   declarations: [
@@ -10,4 +10,5 @@ import { ResultsPage } from './results';
     IonicPageModule.forChild(ResultsPage),
   ],
 })
-export class ResultsPageModule {}
+export class ResultsPageModule {
+}
