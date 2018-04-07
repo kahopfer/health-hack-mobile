@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {BackendProvider} from "../../providers/backend/backend";
-import {ResponseModel} from "../../response-model";
+import {VisionResponse} from "../../response-model";
 import {ResultsPage} from "../results/results";
 
 @IonicPage()
@@ -14,9 +14,8 @@ export class LoadingPage implements OnInit {
               public navParams: NavParams,
               public backendProvider: BackendProvider) {
     this.backendProvider.onLoadingComplete.subscribe(
-      (responseModel: ResponseModel): void => {
-        console.log("loding complete event received, sending to results");
-        this.navCtrl.setRoot(ResultsPage, {responseModel: responseModel});
+      (visionResponse: VisionResponse): void => {
+        this.navCtrl.setRoot(ResultsPage, {visionResponse: visionResponse});
       }
     );
   }

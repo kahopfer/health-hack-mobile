@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {ResponseModel} from "../../response-model";
+import {VisionResponse} from "../../response-model";
 
 @IonicPage()
 @Component({
@@ -8,12 +8,11 @@ import {ResponseModel} from "../../response-model";
   templateUrl: 'results.html',
 })
 export class ResultsPage implements OnInit {
-  responseModel: ResponseModel = null;
+  visionResponse: VisionResponse = null;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams) {
-    console.log("On results page");
-    this.responseModel = this.navParams.data.responseModel;
+    this.visionResponse = this.navParams.data.visionResponse;
   }
 
   public ngOnInit(): void {

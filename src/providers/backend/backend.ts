@@ -1,21 +1,34 @@
 import {HttpClient} from '@angular/common/http';
 import {EventEmitter, Injectable} from '@angular/core';
-import {ResponseModel} from "../../response-model";
+import {VisionResponse, WebDetectionResponse} from "../../response-model";
 
 @Injectable()
 export class BackendProvider {
-  onLoadingComplete: EventEmitter<ResponseModel> = new EventEmitter<ResponseModel>();
+  onLoadingComplete: EventEmitter<VisionResponse> = new EventEmitter<VisionResponse>();
 
   constructor(public http: HttpClient) {
   }
 
   callBackend(base64image: string): void {
-    // TODO: Create actual implementation lol.
-    console.log("Timing...")
     setTimeout(
       (): void => {
-        console.log("Timeout done")
-        this.onLoadingComplete.emit(new ResponseModel())
+        this.onLoadingComplete.emit(new VisionResponse(
+          "this is the text my dude",
+          [
+            new WebDetectionResponse(
+              80,
+              "description1"
+            ),
+            new WebDetectionResponse(
+              90,
+              "description2"
+            ),
+            new WebDetectionResponse(
+              20,
+              "description3"
+            ),
+          ]
+        ))
       },
       3000
     );
