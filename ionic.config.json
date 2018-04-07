@@ -1,0 +1,8 @@
+{
+  "name": "health-hack-mobile",
+  "app_id": "0a81b484",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
