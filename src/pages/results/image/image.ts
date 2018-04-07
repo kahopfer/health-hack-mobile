@@ -12,6 +12,8 @@ import {DomSanitizer} from "@angular/platform-browser";
 export class ImagePage implements OnInit {
   visionResponse: VisionResponse;
   base64Image: string;
+  showControls: boolean = true;
+  scale: number = 1;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,

@@ -1,3 +1,12 @@
 <ion-content padding>
-  <img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
+  <!--<div class="pictureFrame">-->
+    <!--<div class="picture">-->
+      <!--<img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>-->
+    <!--</div>-->
+  <!--</div>-->
+  <zoom-area [(scale)]="scale" [(controls)]="showControls">
+
+    <img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
+
+  </zoom-area>
 </ion-content>
