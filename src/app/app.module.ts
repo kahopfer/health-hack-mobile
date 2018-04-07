@@ -4,7 +4,6 @@ import {BrowserModule} from "@angular/platform-browser";
 import {LoadingPageModule} from "../pages/loading/loading.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {IonicApp, IonicErrorHandler, IonicModule} from "ionic-angular";
-import {ZoomAreaModule} from "ionic2-zoom-area";
 import {ResultsPage} from "../pages/results/results";
 import {ErrorHandler, NgModule} from "@angular/core";
 import {API_BASE_URL, VisionClient} from "./app.api";
@@ -29,7 +28,6 @@ import {Camera} from "@ionic-native/camera";
     HttpClientModule,
     ResultsPageModule,
     BrowserAnimationsModule,
-    ZoomAreaModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
