@@ -10,6 +10,7 @@ import {Camera} from "@ionic-native/camera";
 })
 export class HomePage implements OnInit {
   imageSrc: string = '';
+
   constructor(public navCtrl: NavController,
               private camera: Camera) {
   }
@@ -25,7 +26,7 @@ export class HomePage implements OnInit {
     this.navCtrl.push(LoadingPage);
   }
 
-  openGallery (): void {
+  openGallery(): void {
     let cameraOptions = {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -36,8 +37,12 @@ export class HomePage implements OnInit {
       correctOrientation: true
     };
 
-    this.camera.getPicture(cameraOptions)
-      .then(file_uri => this.imageSrc = file_uri,
-        err => console.log(err));
+    this.camera.getPicture(cameraOptions).then(
+      (imageData: string): void => {
+        let base64Image = 'data:image/jpeg;base64,' + imageData;
+      }, (error: Error): void => {
+        console.error(error);
+      }
+    );
   }
 }
