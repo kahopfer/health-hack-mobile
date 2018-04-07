@@ -33,3 +33,86 @@ $colors: (
     transform: rotate(360deg);
   }
 }
+
+ion-content {
+  background:  linear-gradient(to bottom right, #89faff, grey);
+}
+
+@mixin standard-color-cycle($colorizable-property, $requested-steps, $alpha) {
+  @keyframes standard-color-cycle-on-#{$colorizable-property} {
+    $quantity-color-classes: 6;
+    $color-class-size: 1 / $quantity-color-classes;
+
+    0% {
+      #{$colorizable-property}: rgba(255, 0, 0, $alpha);
+    }
+
+    @for $i from 1 through $requested-steps {
+      $progress: $i / $requested-steps;
+
+      @if $progress > 0 / $quantity-color-classes and $progress <= 1 / $quantity-color-classes {
+        $class-progress: ($progress - (0 / $quantity-color-classes)) / $color-class-size;
+
+        #{100 * $progress}% {
+          #{$colorizable-property}: rgba(255, 255 * $class-progress, 0, $alpha);
+        }
+      } @else if $progress > 1 / $quantity-color-classes and $progress <= 2 / $quantity-color-classes {
+        $class-progress: ($progress - (1 / $quantity-color-classes)) / $color-class-size;
+
+        #{100 * $progress}% {
+          #{$colorizable-property}: rgba(255 * (1 - $class-progress), 255, 0, $alpha);
+        }
+      } @else if $progress > 2 / $quantity-color-classes and $progress <= 3 / $quantity-color-classes {
+        $class-progress: ($progress - (2 / $quantity-color-classes)) / $color-class-size;
+
+        #{100 * $progress}% {
+          #{$colorizable-property}: rgba(0, 255, 255 * $class-progress, $alpha);
+        }
+      } @else if $progress > 3 / $quantity-color-classes and $progress <= 4 / $quantity-color-classes {
+        $class-progress: ($progress - (3 / $quantity-color-classes)) / $color-class-size;
+
+        #{100 * $progress}% {
+          #{$colorizable-property}: rgba(0, 255 * (1 - $class-progress), 255, $alpha);
+        }
+      } @else if $progress > 4 / $quantity-color-classes and $progress <= 5 / $quantity-color-classes {
+        $class-progress: ($progress - (4 / $quantity-color-classes)) / $color-class-size;
+
+        #{100 * $progress}% {
+          #{$colorizable-property}: rgba(255 * $class-progress, 0, 255, $alpha);
+        }
+      } @else if $progress > 5 / $quantity-color-classes and $progress <= 6 / $quantity-color-classes {
+        $class-progress: ($progress - (5 / $quantity-color-classes)) / $color-class-size;
+
+        #{100 * $progress}% {
+          #{$colorizable-property}: rgba(255, 0, 255 * (1 - $class-progress), $alpha);
+        }
+      }
+    }
+  }
+}
+
+@mixin loaders() {
+  @include standard-color-cycle(border-top-color, 60, 1);
+
+  $i: 10;
+  @while $i < 1000 {
+    .loader-#{$i} {
+      border-radius: 50%;
+      border: solid #{$i/10}px lightgrey;
+
+      height: #{$i}px;
+      width: #{$i}px;
+
+      margin-left: auto;
+      margin-right: auto;
+
+      animation: standard-color-cycle-on-border-top-color 5s, spin 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    $i: $i + 10;
+  }
+}
+
+@include loaders();

@@ -1,14 +1,13 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      ReSight
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
   <ion-grid>
     <ion-row>
+      <ion-col col-12>
+          <p id="title" class="row-item">
+            ReSight
+          </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-item">
       <ion-col col-12>
         <button class="button-grid" ion-button icon-start large block text-wrap (click)="getImageFromCamera();">
           <ion-icon class="icon-button" name="camera"></ion-icon>
@@ -19,7 +18,7 @@
         </button>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row class="row-item">
       <ion-col col-12>
         <button class="button-grid" ion-button icon-start large block text-wrap (click)="getImageFromGallery();">
           <ion-icon class="icon-button" name="images"></ion-icon>
