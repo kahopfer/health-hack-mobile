@@ -37,7 +37,7 @@ export class VisionClient {
      * POST Annotate Photo using Google Vision API
      * @return Success
      */
-    visionAnnotate(visionRequestParams: VisionRequestParams): Observable<string> {
+    visionAnnotate(visionRequestParams: VisionRequestParams): Observable<VisionResponse> {
         let url_ = this.baseUrl + "/vision/annotate";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -60,14 +60,14 @@ export class VisionClient {
                 try {
                     return this.processVisionAnnotate(<any>response_);
                 } catch (e) {
-                    return <Observable<string>><any>Observable.throw(e);
+                    return <Observable<VisionResponse>><any>Observable.throw(e);
                 }
             } else
-                return <Observable<string>><any>Observable.throw(response_);
+                return <Observable<VisionResponse>><any>Observable.throw(response_);
         });
     }
 
-    protected processVisionAnnotate(response: HttpResponseBase): Observable<string> {
+    protected processVisionAnnotate(response: HttpResponseBase): Observable<VisionResponse> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -78,7 +78,7 @@ export class VisionClient {
             return blobToText(responseBlob).flatMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
+            result200 = resultData200 ? VisionResponse.fromJS(resultData200) : new VisionResponse();
             return Observable.of(result200);
             });
         } else if (status !== 200 && status !== 204) {
@@ -86,7 +86,7 @@ export class VisionClient {
             return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             });
         }
-        return Observable.of<string>(<any>null);
+        return Observable.of<VisionResponse>(<any>null);
     }
 
     /**
