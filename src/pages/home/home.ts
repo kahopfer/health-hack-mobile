@@ -40,6 +40,10 @@ export class HomePage implements OnInit {
     this.camera.getPicture(cameraOptions).then(
       (imageData: string): void => {
         let base64Image = 'data:image/jpeg;base64,' + imageData;
+
+        // call backend
+
+        this.navCtrl.setRoot(LoadingPage)
       }, (error: Error): void => {
         console.error(error);
       }
