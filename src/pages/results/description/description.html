@@ -5,12 +5,12 @@
         <p>Image Description:</p>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ng-container *ngFor="let webDetect of visionResponse.webDetect">
+    <ng-container *ngFor="let webDetect of visionResponse.webDetect">
+      <ion-row>
         <ion-col col-12>
           <p>We are {{webDetect.score}} percent sure this is a {{webDetect.description}}</p>
         </ion-col>
-      </ng-container>
-    </ion-row>
+      </ion-row>
+    </ng-container>
   </ion-grid>
 </ion-content>
