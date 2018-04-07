@@ -9,6 +9,8 @@ import {HomePage} from '../pages/home/home';
 import {CameraPage} from "../pages/camera/camera";
 import {CameraPageModule} from "../pages/camera/camera.module";
 import {Camera} from "@ionic-native/camera";
+import {LoadingPage} from "../pages/loading/loading";
+import {LoadingPageModule} from "../pages/loading/loading.module";
 
 @NgModule({
   declarations: [
@@ -18,19 +20,21 @@ import {Camera} from "@ionic-native/camera";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    CameraPageModule
+    CameraPageModule,
+    LoadingPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    CameraPage
+    CameraPage,
+    LoadingPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera
+    Camera,
   ]
 })
 export class AppModule {

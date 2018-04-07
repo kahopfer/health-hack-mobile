@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {CameraPage} from "../camera/camera";
+import {LoadingPage} from "../loading/loading";
 
 @Component({
   selector: 'page-home',
@@ -15,5 +16,9 @@ export class HomePage implements OnInit {
 
   goToCamera(): void {
     this.navCtrl.push(CameraPage);
+  }
+
+  goToLoading(): void {
+    this.navCtrl.push(LoadingPage);
   }
 }
