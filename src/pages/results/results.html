@@ -5,4 +5,9 @@
 </ion-header>
 <ion-content padding>
   <p>Results!</p>
+  <ion-tabs>
+    <ion-tab [root]="imageRoot" tabTitle="Image" tabIcon="information-circle"></ion-tab>
+    <ion-tab [root]="textRoot" tabTitle="Text" tabIcon="information-circle"></ion-tab>
+    <ion-tab [root]="descriptionRoot" tabTitle="Description" tabIcon="information-circle"></ion-tab>
+  </ion-tabs>
 </ion-content>

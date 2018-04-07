@@ -10,8 +10,11 @@ import {ResponseModel} from "../../response-model";
 export class ResultsPage implements OnInit {
   responseModel: ResponseModel = null;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+  imageRoot = 'ImagePage';
+  textRoot = 'TextPage';
+  descriptionRoot = 'DescriptionPage';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log("On results page");
     this.responseModel = this.navParams.data.responseModel;
   }
