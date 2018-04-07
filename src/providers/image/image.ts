@@ -14,15 +14,16 @@ export class ImageProvider {
     console.log('Hello ImageProvider Provider');
   }
 
-  setImage(base64image: string): void {
-    this.latestImageBase64 = this.latestImageBase64;
+  setImage(base64Image: string): void {
+    this.latestImageBase64 = "data:image/jpeg;base64," + base64Image;
+
   }
 
-  getImage(): void {
-    if (this.latestImageBase64 = ""){
-
+  getImage(): string{
+    if (this.latestImageBase64 === ""){
+      throw "no image found";
     }else{
-
+      return this.latestImageBase64;
     }
   }
 

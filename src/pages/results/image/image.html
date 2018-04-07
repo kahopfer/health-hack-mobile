@@ -1,12 +1,3 @@
 <ion-content padding>
-  <b>Vision Response</b>
-  <p>Text: {{visionResponse.text}}</p>
-  <p>Web Detects:</p>
-  <ng-container *ngFor="let webDetect of visionResponse.webDetect">
-    <div>
-      <b>Web Detect</b>
-      <p>Score: {{webDetect.score}}</p>
-      <p>Description: {{webDetect.description}}</p>
-    </div>
-  </ng-container>
+  <img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
 </ion-content>
