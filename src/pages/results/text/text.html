@@ -1,9 +1,11 @@
 <ion-content padding>
-  <p>Text Found in Image:</p>
-  <p>{{visionResponse.text}}</p>
   <ion-grid>
     <ion-row>
-      <ion-col col-2 text-center>
+      <p>Text Found in Image:</p>
+      <p>{{visionResponse.text}}</p>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 text-center>
         <button class="mic-button" ion-button icon-only large (click)="readResponse();">
           <ion-icon class="mic-icon" name="mic"></ion-icon>
         </button>
