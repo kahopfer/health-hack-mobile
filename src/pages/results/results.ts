@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {VisionResponse} from "../../response-model";
+import {HomePage} from "../home/home";
 
 @IonicPage()
 @Component({
@@ -20,5 +21,9 @@ export class ResultsPage implements OnInit {
   }
 
   public ngOnInit(): void {
+  }
+
+  goHome(): void {
+    this.navCtrl.setRoot(HomePage);
   }
 }
