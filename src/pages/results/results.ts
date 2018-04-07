@@ -12,6 +12,7 @@ export class ResultsPage implements OnInit {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams) {
+    console.log("On results page");
     this.responseModel = this.navParams.data.responseModel;
   }
 

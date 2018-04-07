@@ -15,6 +15,7 @@ export class LoadingPage implements OnInit {
               public backendProvider: BackendProvider) {
     this.backendProvider.onLoadingComplete.subscribe(
       (responseModel: ResponseModel): void => {
+        console.log("loding complete event received, sending to results");
         this.navCtrl.setRoot(ResultsPage, {responseModel: responseModel});
       }
     );

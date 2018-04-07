@@ -11,8 +11,10 @@ export class BackendProvider {
 
   callBackend(base64image: string): void {
     // TODO: Create actual implementation lol.
+    console.log("Timing...")
     setTimeout(
       (): void => {
+        console.log("Timeout done")
         this.onLoadingComplete.emit(new ResponseModel())
       },
       3000
