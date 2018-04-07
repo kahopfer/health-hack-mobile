@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {CameraPage} from "../camera/camera";
 import {LoadingPage} from "../loading/loading";
 import {Camera} from "@ionic-native/camera";
+import {BackendProvider} from "../../providers/backend/backend";
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,8 @@ export class HomePage implements OnInit {
   imageSrc: string = '';
 
   constructor(public navCtrl: NavController,
-              private camera: Camera) {
+              private camera: Camera,
+              private backendProvider: BackendProvider) {
   }
 
   public ngOnInit(): void {
@@ -41,7 +43,7 @@ export class HomePage implements OnInit {
       (imageData: string): void => {
         let base64Image = 'data:image/jpeg;base64,' + imageData;
 
-        // call backend
+        this.backendProvider.callBackend(base64Image);
 
         this.navCtrl.setRoot(LoadingPage)
       }, (error: Error): void => {

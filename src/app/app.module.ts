@@ -11,6 +11,7 @@ import {CameraPageModule} from "../pages/camera/camera.module";
 import {Camera} from "@ionic-native/camera";
 import {LoadingPage} from "../pages/loading/loading";
 import {LoadingPageModule} from "../pages/loading/loading.module";
+import { BackendProvider } from '../providers/backend/backend';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {LoadingPageModule} from "../pages/loading/loading.module";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
+    BackendProvider,
   ]
 })
 export class AppModule {
