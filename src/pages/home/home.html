@@ -7,14 +7,37 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button large block (click)="goToLoading();">Loading</button>
-  <button ion-button icon-start large block (click)="goToCamera();">
-    <ion-icon name="camera"></ion-icon>
-    Take a Photo
-  </button>
-  <button ion-button icon-start large block (click)="openGallery();">
-    <ion-icon name="image"></ion-icon>
-    Choose a Photo from Camera Roll
-  </button>
-  <img [src]="imageSrc"/>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button class="button-grid" ion-button icon-start large block text-wrap (click)="goToCamera();">
+          <div class="icon-div">
+            <ion-icon class="icon-button" name="camera"></ion-icon>
+          </div>
+          <br>
+          <label>
+            Take a Photo
+          </label>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <button class="button-grid" ion-button icon-start large block text-wrap (click)="openGallery();">
+          <div class="icon-div">
+            <ion-icon class="icon-button" name="image"></ion-icon>
+          </div>
+          <br>
+          <label>
+            Choose a Photo from Camera Roll
+          </label>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <button class="button-grid" ion-button large block text-wrap (click)="goToLoading();">Loading</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

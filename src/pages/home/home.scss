@@ -1,3 +1,25 @@
 page-home {
+  ion-grid {
+    height: 100%;
 
+    ion-row {
+      height: 33.33%;
+    }
+  }
+
+  .button-inner {
+    flex-flow: column;
+  }
+
+  .button-grid {
+    height: 100%;
+  }
+
+  .icon-button {
+    font-size: 75px;
+  }
+
+  .icon-div {
+    text-align: center;
+  }
 }
