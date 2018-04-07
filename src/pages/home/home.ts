@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import {BackendProvider} from "../../providers/backend/backend";
+import {ImageProvider} from "../../providers/image/image";
 import {LoadingPage} from "../loading/loading";
 
 @Component({
@@ -12,8 +13,9 @@ export class HomePage implements OnInit {
   imageSrc: string = '';
 
   constructor(public navCtrl: NavController,
+              private camera: Camera,
               private backendProvider: BackendProvider,
-              private camera: Camera) {
+              private imageProvider: ImageProvider) {
   }
 
   public ngOnInit(): void {
@@ -55,6 +57,7 @@ export class HomePage implements OnInit {
   }
 
   sendToBackend(base64Image: string) {
+    this.imageProvider.setImage(base64Image);
     this.backendProvider.callBackend(base64Image);
     this.navCtrl.setRoot(LoadingPage)
   }
