@@ -34,14 +34,14 @@ export class VisionClient {
     }
 
     /**
-     * POST Request to Annotate Photo
+     * POST Annotate Photo using Google Vision API
      * @return Success
      */
-    annotateVision(visionParams: VisionParams): Observable<string> {
+    visionAnnotate(visionRequestParams: VisionRequestParams): Observable<string> {
         let url_ = this.baseUrl + "/vision/annotate";
         url_ = url_.replace(/[?&]$/, "");
 
-        const content_ = JSON.stringify(visionParams);
+        const content_ = JSON.stringify(visionRequestParams);
 
         let options_ : any = {
             body: content_,
@@ -54,11 +54,11 @@ export class VisionClient {
         };
 
         return this.http.request("post", url_, options_).flatMap((response_ : any) => {
-            return this.processAnnotateVision(response_);
+            return this.processVisionAnnotate(response_);
         }).catch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processAnnotateVision(<any>response_);
+                    return this.processVisionAnnotate(<any>response_);
                 } catch (e) {
                     return <Observable<string>><any>Observable.throw(e);
                 }
@@ -67,7 +67,7 @@ export class VisionClient {
         });
     }
 
-    protected processAnnotateVision(response: HttpResponseBase): Observable<string> {
+    protected processVisionAnnotate(response: HttpResponseBase): Observable<string> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -90,10 +90,10 @@ export class VisionClient {
     }
 
     /**
-     * GET Web Detection/Text Responses
+     * GET Get Response by Type
      * @return Success
      */
-    getResponseByType(responseType: string, id: string): Observable<VisionResponse> {
+    getResponse(responseType: string, id: string): Observable<VisionResponse> {
         let url_ = this.baseUrl + "/vision/{id}?";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -114,11 +114,11 @@ export class VisionClient {
         };
 
         return this.http.request("get", url_, options_).flatMap((response_ : any) => {
-            return this.processGetResponseByType(response_);
+            return this.processGetResponse(response_);
         }).catch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processGetResponseByType(<any>response_);
+                    return this.processGetResponse(<any>response_);
                 } catch (e) {
                     return <Observable<VisionResponse>><any>Observable.throw(e);
                 }
@@ -127,7 +127,7 @@ export class VisionClient {
         });
     }
 
-    protected processGetResponseByType(response: HttpResponseBase): Observable<VisionResponse> {
+    protected processGetResponse(response: HttpResponseBase): Observable<VisionResponse> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -150,10 +150,10 @@ export class VisionClient {
     }
 }
 
-export class VisionParams implements IVisionParams {
+export class VisionRequestParams implements IVisionRequestParams {
     imageContent: string;
 
-    constructor(data?: IVisionParams) {
+    constructor(data?: IVisionRequestParams) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -168,9 +168,9 @@ export class VisionParams implements IVisionParams {
         }
     }
 
-    static fromJS(data: any): VisionParams {
+    static fromJS(data: any): VisionRequestParams {
         data = typeof data === 'object' ? data : {};
-        let result = new VisionParams();
+        let result = new VisionRequestParams();
         result.init(data);
         return result;
     }
@@ -182,15 +182,15 @@ export class VisionParams implements IVisionParams {
     }
 }
 
-export interface IVisionParams {
+export interface IVisionRequestParams {
     imageContent: string;
 }
 
-export class WebDetection implements IWebDetection {
+export class WebDetectionResponse implements IWebDetectionResponse {
     score?: number | null;
     description?: string | null;
 
-    constructor(data?: IWebDetection) {
+    constructor(data?: IWebDetectionResponse) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -206,9 +206,9 @@ export class WebDetection implements IWebDetection {
         }
     }
 
-    static fromJS(data: any): WebDetection {
+    static fromJS(data: any): WebDetectionResponse {
         data = typeof data === 'object' ? data : {};
-        let result = new WebDetection();
+        let result = new WebDetectionResponse();
         result.init(data);
         return result;
     }
@@ -221,14 +221,14 @@ export class WebDetection implements IWebDetection {
     }
 }
 
-export interface IWebDetection {
+export interface IWebDetectionResponse {
     score?: number | null;
     description?: string | null;
 }
 
 export class VisionResponse implements IVisionResponse {
     text?: string | null;
-    webDetect?: WebDetection[] | null;
+    webDetect?: WebDetectionResponse[] | null;
 
     constructor(data?: IVisionResponse) {
         if (data) {
@@ -245,7 +245,7 @@ export class VisionResponse implements IVisionResponse {
             if (data["webDetect"] && data["webDetect"].constructor === Array) {
                 this.webDetect = [];
                 for (let item of data["webDetect"])
-                    this.webDetect.push(WebDetection.fromJS(item));
+                    this.webDetect.push(WebDetectionResponse.fromJS(item));
             }
         }
     }
@@ -271,7 +271,7 @@ export class VisionResponse implements IVisionResponse {
 
 export interface IVisionResponse {
     text?: string | null;
-    webDetect?: WebDetection[] | null;
+    webDetect?: WebDetectionResponse[] | null;
 }
 
 export class SwaggerException extends Error {
