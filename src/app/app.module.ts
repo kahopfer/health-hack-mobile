@@ -12,6 +12,8 @@ import {Camera} from "@ionic-native/camera";
 import {LoadingPage} from "../pages/loading/loading";
 import {LoadingPageModule} from "../pages/loading/loading.module";
 import { BackendProvider } from '../providers/backend/backend';
+import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { BackendProvider } from '../providers/backend/backend';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     CameraPageModule,
-    LoadingPageModule
+    LoadingPageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
