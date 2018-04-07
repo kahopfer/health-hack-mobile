@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {CameraPage} from "../camera/camera";
-import {LoadingPage} from "../loading/loading";
-import {Camera} from "@ionic-native/camera";
+import {Camera, CameraOptions} from "@ionic-native/camera";
 import {BackendProvider} from "../../providers/backend/backend";
+import {LoadingPage} from "../loading/loading";
 
 @Component({
   selector: 'page-home',
@@ -13,19 +12,31 @@ export class HomePage implements OnInit {
   imageSrc: string = '';
 
   constructor(public navCtrl: NavController,
-              private camera: Camera,
-              private backendProvider: BackendProvider) {
+              private backendProvider: BackendProvider,
+              private camera: Camera) {
   }
 
   public ngOnInit(): void {
   }
 
-  goToCamera(): void {
-    this.navCtrl.push(CameraPage);
+  getImageFromCamera(): void {
+    const cameraOptions: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    };
+
+    this.camera.getPicture(cameraOptions).then(
+      this.sendToBackend.bind(this),
+      (error: Error): void => {
+        console.error(error);
+      }
+    );
   }
 
-  openGallery(): void {
-    let cameraOptions = {
+  getImageFromGallery(): void {
+    const cameraOptions: CameraOptions = {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.FILE_URI,
       quality: 100,
@@ -36,15 +47,15 @@ export class HomePage implements OnInit {
     };
 
     this.camera.getPicture(cameraOptions).then(
-      (imageData: string): void => {
-        let base64Image = 'data:image/jpeg;base64,' + imageData;
-
-        this.backendProvider.callBackend(base64Image);
-
-        this.navCtrl.setRoot(LoadingPage)
-      }, (error: Error): void => {
+      this.sendToBackend.bind(this),
+      (error: Error): void => {
         console.error(error);
       }
     );
+  }
+
+  sendToBackend(base64Image: string) {
+    this.backendProvider.callBackend(base64Image);
+    this.navCtrl.setRoot(LoadingPage)
   }
 }
