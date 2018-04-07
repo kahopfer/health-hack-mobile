@@ -1,8 +1,16 @@
 <ion-content padding>
-  <p>Image Description:</p>
-  <ng-container *ngFor="let webDetect of visionResponse.webDetect">
-    <div>
-      <p>We are {{webDetect.score}} percent sure this is a {{webDetect.description}}</p>
-    </div>
-  </ng-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <p>Image Description:</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ng-container *ngFor="let webDetect of visionResponse.webDetect">
+        <ion-col col-12>
+          <p>We are {{webDetect.score}} percent sure this is a {{webDetect.description}}</p>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
 </ion-content>
