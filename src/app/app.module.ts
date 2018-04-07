@@ -14,6 +14,7 @@ import {LoadingPageModule} from "../pages/loading/loading.module";
 import { BackendProvider } from '../providers/backend/backend';
 import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
+import {ResultsPageModule} from "../pages/results/results.module";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {HttpModule} from "@angular/http";
     IonicModule.forRoot(MyApp),
     CameraPageModule,
     LoadingPageModule,
-    HttpClientModule
+    HttpClientModule,
+    ResultsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
