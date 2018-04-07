@@ -11,11 +11,13 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-12 text-center>
-        <button class="mic-button" ion-button icon-only large (click)="readResponse();">
-          <ion-icon class="mic-icon" name="mic"></ion-icon>
-        </button>
-      </ion-col>
+      <div class="mic-row">
+        <ion-col class="mic-col">
+          <button class="mic-button" ion-button icon-only large (click)="readResponse();">
+            <ion-icon class="mic-icon" name="mic"></ion-icon>
+          </button>
+        </ion-col>
+      </div>
     </ion-row>
   </ion-grid>
 </ion-content>
