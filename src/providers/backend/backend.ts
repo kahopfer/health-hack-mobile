@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {EventEmitter, Injectable} from '@angular/core';
-import {VisionResponse, WebDetectionResponse} from "../../response-model";
+import {VisionResponse, WebDetectionResponse} from "../../app/app.api";
 
 @Injectable()
 export class BackendProvider {
@@ -12,23 +12,16 @@ export class BackendProvider {
   callBackend(base64image: string): void {
     setTimeout(
       (): void => {
-        this.onLoadingComplete.emit(new VisionResponse(
-          "this is the text my dude",
-          [
-            new WebDetectionResponse(
-              80,
-              "description1"
-            ),
-            new WebDetectionResponse(
-              90,
-              "description2"
-            ),
-            new WebDetectionResponse(
-              20,
-              "description3"
-            ),
-          ]
-        ))
+        this.onLoadingComplete.emit(new VisionResponse({
+            text: "this is the text my dude",
+            webDetect: [
+              new WebDetectionResponse({
+                score: 80,
+                description: "description1"
+              })
+            ]
+          })
+        )
       },
       3000
     );

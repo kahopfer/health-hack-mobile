@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {VisionResponse} from "../../response-model";
 import {HomePage} from "../home/home";
+import {VisionResponse} from "../../app/app.api";
 
 @IonicPage()
 @Component({

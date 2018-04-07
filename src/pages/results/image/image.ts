@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {VisionResponse} from "../../../response-model";
 import {ImageProvider} from "../../../providers/image/image";
 import {DomSanitizer} from "@angular/platform-browser";
+import {VisionResponse} from "../../../app/app.api";
 
 @IonicPage()
 @Component({
@@ -25,6 +25,5 @@ export class ImagePage implements OnInit {
   public ngOnInit(): void {
       this.base64Image = this.imageProvider.getImage();
   }
-
 }
 
