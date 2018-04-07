@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {CameraPage} from "../camera/camera";
 import {LoadingPage} from "../loading/loading";
+import {ResultsPage} from "../results/results";
 import {Camera} from "@ionic-native/camera";
 import {BackendProvider} from "../../providers/backend/backend";
 
@@ -26,6 +27,10 @@ export class HomePage implements OnInit {
 
   goToLoading(): void {
     this.navCtrl.push(LoadingPage);
+  }
+
+  goToResults(): void {
+    this.navCtrl.push(ResultsPage);
   }
 
   openGallery(): void {

@@ -11,10 +11,11 @@ import {CameraPageModule} from "../pages/camera/camera.module";
 import {Camera} from "@ionic-native/camera";
 import {LoadingPage} from "../pages/loading/loading";
 import {LoadingPageModule} from "../pages/loading/loading.module";
+import {ResultsPage} from "../pages/results/results";
+import {ResultsPageModule} from "../pages/results/results.module";
 import { BackendProvider } from '../providers/backend/backend';
 import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
-import {ResultsPageModule} from "../pages/results/results.module";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {ResultsPageModule} from "../pages/results/results.module";
     MyApp,
     HomePage,
     CameraPage,
-    LoadingPage
+    LoadingPage,
+    ResultsPage
   ],
   providers: [
     StatusBar,
