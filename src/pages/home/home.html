@@ -1,12 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      ReSight
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button (click)="goToLoading();"></button>
-  <button (click)="goToCamera();">Camera</button>
+  <button ion-button block (click)="goToLoading();">Loading</button>
+  <button ion-button block (click)="goToCamera();">Take a Photo</button>
+  <button ion-button block>Choose a Photo from Camera Roll</button>
 </ion-content>
