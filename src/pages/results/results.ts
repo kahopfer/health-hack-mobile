@@ -10,8 +10,12 @@ import {VisionResponse} from "../../response-model";
 export class ResultsPage implements OnInit {
   visionResponse: VisionResponse = null;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+  imageRoot = 'ImagePage';
+  textRoot = 'TextPage';
+  descriptionRoot = 'DescriptionPage';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log("On results page");
     this.visionResponse = this.navParams.data.visionResponse;
   }
 

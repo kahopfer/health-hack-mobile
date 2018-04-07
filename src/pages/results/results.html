@@ -5,9 +5,6 @@
 </ion-header>
 <ion-content padding>
   <p>Results!</p>
-  <b>Vision Response</b>
-  <p>Text: {{visionResponse.text}}</p>
-  <p>Web Detects:</p>
   <ng-container *ngFor="let webDetect of visionResponse.webDetect">
     <div>
       <b>Web Detect</b>
@@ -15,4 +12,12 @@
       <p>Description: {{webDetect.description}}</p>
     </div>
   </ng-container>
+  <ion-tabs>
+    <ion-tab [root]="imageRoot" tabTitle="Image" tabIcon="information-circle"></ion-tab>
+    <ion-tab [root]="textRoot" tabTitle="Text" tabIcon="information-circle"></ion-tab>
+    <ion-tab [root]="descriptionRoot" tabTitle="Description" tabIcon="information-circle"></ion-tab>
+  </ion-tabs>
+  <b>Vision Response</b>
+  <p>Text: {{visionResponse.text}}</p>
+  <p>Web Detects:</p>
 </ion-content>
