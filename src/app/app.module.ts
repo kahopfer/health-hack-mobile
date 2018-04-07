@@ -3,7 +3,7 @@ import {HomePage} from "../pages/home/home";
 import {BrowserModule} from "@angular/platform-browser";
 import {LoadingPageModule} from "../pages/loading/loading.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {IonicApp, IonicErrorHandler, IonicModule} from "ionic-angular";
+import {IonicApp, IonicErrorHandler, IonicModule, ToastController} from "ionic-angular";
 import {ResultsPage} from "../pages/results/results";
 import {ErrorHandler, NgModule} from "@angular/core";
 import {API_BASE_URL, VisionClient} from "./app.api";
@@ -43,7 +43,8 @@ import {Camera} from "@ionic-native/camera";
     {provide: API_BASE_URL, useFactory: baseUrl}, Camera,
     BackendProvider,
     ImageProvider,
-    VisionClient
+    VisionClient,
+    ToastController
   ]
 })
 export class AppModule {
