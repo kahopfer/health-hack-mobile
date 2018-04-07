@@ -16,4 +16,9 @@ export class TextPage implements OnInit {
 
   public ngOnInit(): void {
   }
+
+  readResponse() {
+    let utterance = new SpeechSynthesisUtterance(this.visionResponse.text);
+    (<any>window).speechSynthesis.speak(utterance);
+  }
 }

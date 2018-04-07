@@ -1,4 +1,11 @@
 <ion-content padding>
-  <b>Text Found in Image:</b>
+  <p>Text Found in Image:</p>
   <p>{{visionResponse.text}}</p>
+  <button ion-button large block (click)="readResponse();">
+    <ion-icon name="mic"></ion-icon>
+    <br>
+    <label>
+      Listen
+    </label>
+  </button>
 </ion-content>
