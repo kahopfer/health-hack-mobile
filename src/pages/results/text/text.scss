@@ -5,8 +5,12 @@ page-text {
 
   .mic-button {
     display:block;
-    height: 50px;
-    width: 50px;
+    height: 85px;
+    width: 85px;
     border-radius: 50%;
+  }
+
+  .mic-icon {
+    font-size: 75px;
   }
 }
