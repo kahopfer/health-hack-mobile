@@ -18,19 +18,13 @@
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
 
-  <!-- un-comment this code to enable service worker
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('service worker installed'))
-        .catch(err => console.error('Error', err));
-    }
-  </script>-->
-
   <link href="build/main.css" rel="stylesheet">
-
 </head>
 <body>
+
+<div id="console" style="position:absolute; top:0; z-index: 999; height: 60px; overflow-y: scroll; color: blue;">
+  This the console
+</div>
 
 <!-- Ionic's root component and where the app will load -->
 <ion-app></ion-app>

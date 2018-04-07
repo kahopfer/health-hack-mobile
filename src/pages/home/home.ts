@@ -18,7 +18,6 @@ export class HomePage implements OnInit {
   }
 
   public ngOnInit(): void {
-    alert("hello0");
   }
 
   goToCamera(): void {

@@ -5,6 +5,11 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {HomePage} from '../pages/home/home';
 
+console.log = (message: string): void => {
+  document.getElementById("console").innerHTML += "<br/>" + message;
+};
+console.error = console.debug = console.info = console.log;
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -18,6 +23,37 @@ export class MyApp {
         // Here you can do any higher level native things you might need.
         statusBar.styleDefault();
         splashScreen.hide();
+        
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
+        console.log("a");
       }
     );
   }
