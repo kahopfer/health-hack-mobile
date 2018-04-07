@@ -2,4 +2,11 @@ page-text {
   .button-inner {
     flex-flow: column;
   }
+
+  .mic-button {
+    display:block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
 }
