@@ -13,8 +13,10 @@ export class LoadingPage implements OnInit {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public backendProvider: BackendProvider) {
+    alert("hello1");
     this.backendProvider.onLoadingComplete.subscribe(
       (responseModel: ResponseModel): void => {
+        alert("hello2");
         this.navCtrl.setRoot(ResultsPage, {responseModel: responseModel});
       }
     );
