@@ -1,29 +1,21 @@
-import {HttpClientModule} from '@angular/common/http';
-import {ErrorHandler, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {Camera} from '@ionic-native/camera';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {StatusBar} from '@ionic-native/status-bar';
-import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
-import {HomePage} from '../pages/home/home';
-import {LoadingPage} from "../pages/loading/loading";
-import {LoadingPageModule} from "../pages/loading/loading.module";
-import {ResultsPage} from "../pages/results/results";
-import {ResultsPageModule} from "../pages/results/results.module";
-import { BackendProvider } from '../providers/backend/backend';
-import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
-import { ImageProvider } from '../providers/image/image';
-import { ZoomAreaModule } from 'ionic2-zoom-area';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {LoadingPage} from '../pages/loading/loading';
-import {LoadingPageModule} from '../pages/loading/loading.module';
-import {ResultsPage} from '../pages/results/results';
-import {ResultsPageModule} from '../pages/results/results.module';
-import {BackendProvider} from '../providers/backend/backend';
-import {ImageProvider} from '../providers/image/image';
-import {API_BASE_URL} from './app.api';
-
 import {MyApp} from './app.component';
+import {HomePage} from "../pages/home/home";
+import {BrowserModule} from "@angular/platform-browser";
+import {LoadingPageModule} from "../pages/loading/loading.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {IonicApp, IonicErrorHandler, IonicModule} from "ionic-angular";
+import {ZoomAreaModule} from "ionic2-zoom-area";
+import {ResultsPage} from "../pages/results/results";
+import {ErrorHandler, NgModule} from "@angular/core";
+import {API_BASE_URL} from "./app.api";
+import {BackendProvider} from "../providers/backend/backend";
+import {SplashScreen} from "@ionic-native/splash-screen";
+import {StatusBar} from "@ionic-native/status-bar";
+import {ImageProvider} from "../providers/image/image";
+import {LoadingPage} from "../pages/loading/loading";
+import {ResultsPageModule} from "../pages/results/results.module";
+import {HttpClientModule} from "@angular/common/http";
+import {Camera, CameraOptions} from "@ionic-native/camera";
 
 @NgModule({
   declarations: [
@@ -43,7 +35,6 @@ import {MyApp} from './app.component';
   entryComponents: [
     MyApp,
     HomePage,
-
     LoadingPage,
     ResultsPage
   ],
