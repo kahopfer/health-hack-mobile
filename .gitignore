@@ -4,5 +4,6 @@ dist/
 node_modules/
 platforms/
 plugins/
+resources/
 www/
 .DS_Store
