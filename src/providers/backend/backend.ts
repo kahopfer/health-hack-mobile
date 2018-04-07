@@ -1,29 +1,21 @@
 import {HttpClient} from '@angular/common/http';
 import {EventEmitter, Injectable} from '@angular/core';
-import {VisionResponse, WebDetectionResponse} from "../../app/app.api";
+import {VisionClient, VisionRequestParams, VisionResponse} from "../../app/app.api";
 
 @Injectable()
 export class BackendProvider {
   onLoadingComplete: EventEmitter<VisionResponse> = new EventEmitter<VisionResponse>();
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+              private visionClient: VisionClient) {
   }
 
   callBackend(base64image: string): void {
-    setTimeout(
-      (): void => {
-        this.onLoadingComplete.emit(new VisionResponse({
-            text: "this is the text my dude",
-            webDetect: [
-              new WebDetectionResponse({
-                score: 80,
-                description: "description1"
-              })
-            ]
-          })
-        )
-      },
-      3000
-    );
+    this.visionClient.visionAnnotate(new VisionRequestParams({imageContent: base64image}))
+      .subscribe((visionResponse: VisionResponse) => {
+        this.onLoadingComplete.emit(visionResponse)
+      }, (err: Error) => {
+        console.error(err);
+      })
   }
 }

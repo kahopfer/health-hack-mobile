@@ -7,7 +7,7 @@ import {IonicApp, IonicErrorHandler, IonicModule} from "ionic-angular";
 import {ZoomAreaModule} from "ionic2-zoom-area";
 import {ResultsPage} from "../pages/results/results";
 import {ErrorHandler, NgModule} from "@angular/core";
-import {API_BASE_URL} from "./app.api";
+import {API_BASE_URL, VisionClient} from "./app.api";
 import {BackendProvider} from "../providers/backend/backend";
 import {SplashScreen} from "@ionic-native/splash-screen";
 import {StatusBar} from "@ionic-native/status-bar";
@@ -15,7 +15,7 @@ import {ImageProvider} from "../providers/image/image";
 import {LoadingPage} from "../pages/loading/loading";
 import {ResultsPageModule} from "../pages/results/results.module";
 import {HttpClientModule} from "@angular/common/http";
-import {Camera, CameraOptions} from "@ionic-native/camera";
+import {Camera} from "@ionic-native/camera";
 
 @NgModule({
   declarations: [
@@ -45,6 +45,7 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
     {provide: API_BASE_URL, useFactory: baseUrl}, Camera,
     BackendProvider,
     ImageProvider,
+    VisionClient
   ]
 })
 export class AppModule {
