@@ -8,7 +8,7 @@
     <ion-row>
       <ion-col col-12>
         <ng-container *ngFor="let label of visionResponse.labels">
-          <p>{{label.description}} ({{Math.round(label.score * 100 * 100) / 100}} sure)</p>
+          <p>{{label.description}} {{label.score}}</p>
         </ng-container>
       </ion-col>
     </ion-row>
