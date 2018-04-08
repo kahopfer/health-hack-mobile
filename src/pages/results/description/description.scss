@@ -1,3 +1,5 @@
+@import "../../../theme/variables";
+
 page-description {
   * {
     color: white;
@@ -15,7 +17,7 @@ page-description {
     height: 85px;
     width: 85px;
     border-radius: 50%;
-    background: linear-gradient(to bottom right, #76d25b, #246bc5) !important;
+    background: linear-gradient(to bottom right, $secondary-1, $secondary-2) !important;
   }
 
   .mic-icon {
