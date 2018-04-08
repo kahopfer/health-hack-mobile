@@ -16,8 +16,8 @@ export class ImagePage implements OnInit {
   base64Image: string;
   currentZoom = 1;
   img: any;
-  h: number = 100;
-  w: number = 100;
+  h: number = 200;
+  w: number = 200;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
