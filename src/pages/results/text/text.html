@@ -15,8 +15,8 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col class="mic-col">
+    <ion-row *ngIf="visionResponse.text !== ''">
+      <ion-col class="mic-col" text-wrap>
         <button class="mic-button" ion-button icon-only large (click)="readResponse();">
           <ion-icon class="mic-icon" name="mic"></ion-icon>
         </button>

@@ -7,8 +7,8 @@
     </ion-row>
     <ion-row>
       <ion-col col-12>
-        <ng-container *ngFor="let webDetect of visionResponse.webDetect">
-          <p>{{webDetect.description}} ({{webDetect.score * 100}} sure)</p>
+        <ng-container *ngFor="let label of visionResponse.labels">
+          <p>{{label.description}} ({{Math.round(label.score * 100 * 100) / 100}} sure)</p>
         </ng-container>
       </ion-col>
     </ion-row>
