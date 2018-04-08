@@ -61,9 +61,7 @@ export class HomePage implements OnInit {
     }
 
     sendToBackend(base64Image: string) {
-        console.log('invoking backend function');
         this.imageProvider.setImage(base64Image);
-        console.log('invoking backend function');
         this.backendProvider.callBackend(base64Image);
         this.navCtrl.setRoot(LoadingPage);
     }

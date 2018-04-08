@@ -1,5 +1,33 @@
 page-description {
-  ion-grid {
-    height: 50%;
+  * {
+    color: white;
+  }
+
+  #header {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  .mic-button {
+    display: inline-block;
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, #76d25b, #246bc5) !important;
+  }
+
+  .mic-icon {
+    font-size: 75px;
+  }
+
+  .mic-col {
+    text-align: center;
+  }
+
+  .mic-row {
+    position: fixed;
+    bottom: 60px;
   }
 }

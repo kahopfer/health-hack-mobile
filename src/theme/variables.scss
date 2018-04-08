@@ -7,13 +7,10 @@ $app-direction: ltr;
 @import "roboto";
 @import "noto-sans";
 
-$colors: (
-  primary: #488aff,
-  secondary: #32db64,
-  danger: #f53d3d,
-  light: #f4f4f4,
-  dark: #222
-);
+  $primary-1: #3bdbe7;
+  $primary-2: #8B7EDA;
+  $secondary-1: #76d25b;
+  $secondary-2: #246bc5;
 
 .loader {
   width: 200px;
@@ -43,7 +40,7 @@ $tabs-ios-tab-icon-color: red;
 }
 
 ion-content {
-  background: linear-gradient(to bottom right, #3bdbe7, #8B7EDA);
+  background: linear-gradient(to bottom right, $primary-1, $primary-2);
 }
 
 @mixin standard-color-cycle($colorizable-property, $requested-steps, $alpha) {

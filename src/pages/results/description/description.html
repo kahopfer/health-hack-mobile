@@ -2,7 +2,7 @@
   <ion-grid>
     <ion-row>
       <ion-col col-12>
-        <p>Image Description:</p>
+        <p id="header">Image Description</p>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -11,6 +11,15 @@
           <p>{{label.description}} ({{label.score}}% sure)</p>
         </ng-container>
       </ion-col>
+    </ion-row>
+    <ion-row *ngIf="visionResponse.labels.length > 0">
+      <div class="mic-row">
+        <ion-col class="mic-col" text-wrap>
+          <button class="mic-button" ion-button icon-only large (click)="readLabels();">
+            <ion-icon class="mic-icon" name="mic"></ion-icon>
+          </button>
+        </ion-col>
+      </div>
     </ion-row>
   </ion-grid>
 </ion-content>

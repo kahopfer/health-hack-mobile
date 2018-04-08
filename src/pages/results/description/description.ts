@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {VisionResponse} from "../../../app/app.api";
+import {LabelAnnotationsItemType, VisionResponse} from "../../../app/app.api";
 
 @IonicPage()
 @Component({
@@ -18,5 +18,13 @@ export class DescriptionPage implements OnInit {
   }
 
   public ngOnInit(): void {
+  }
+
+  public readLabels(): void {
+    this.visionResponse.labels.forEach(
+      (label: LabelAnnotationsItemType): void => {
+        (<any>window).speechSynthesis.speak(new SpeechSynthesisUtterance(label.description + ", " + label.score + "% sure."));
+      }
+    );
   }
 }

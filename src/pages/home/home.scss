@@ -1,3 +1,5 @@
+@import "../../theme/variables";
+
 page-home {
   ion-grid {
     height: 100%;
@@ -18,7 +20,7 @@ page-home {
   .button-grid {
     height: 100%;
 
-    background: linear-gradient(to bottom right, #76d25b, #246bc5);
+    background: linear-gradient(to bottom right, $secondary-1, $secondary-2);
   }
 
   .icon-button {

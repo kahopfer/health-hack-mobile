@@ -14,7 +14,6 @@ export class ImageProvider {
   cameraPhoto = false;
   constructor(public http: HttpClient,
               public toastCtrl: ToastController) {
-    console.log('Hello ImageProvider Provider');
   }
 
 

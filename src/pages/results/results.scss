@@ -1,6 +1,8 @@
+@import "../../theme/variables";
+
 page-results {
   .tabbar {
-    background: linear-gradient(to bottom right, #76d25b, #246bc5) !important;
+    background: linear-gradient(to bottom right, $secondary-1, $secondary-2) !important;
     color: white !important;
   }
 
@@ -9,7 +11,7 @@ page-results {
   }
 
   .toolbar-background {
-    background: linear-gradient(to bottom right, #76d25b, #246bc5) !important;
+    background: linear-gradient(to bottom right,  $secondary-1, $secondary-2) !important;
     color: white !important;
   }
 

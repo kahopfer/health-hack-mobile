@@ -41,8 +41,6 @@ export class VisionClient {
         let url_ = this.baseUrl + "/vision/annotate";
         url_ = url_.replace(/[?&]$/, "");
 
-      console.log(url_);
-
       const content_ = JSON.stringify(visionRequestParams);
 
         let options_ : any = {
@@ -70,7 +68,6 @@ export class VisionClient {
     }
 
     protected processVisionAnnotate(response: HttpResponseBase): Observable<VisionResponse> {
-      console.error(JSON.stringify(response));
       const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -78,7 +75,6 @@ export class VisionClient {
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 200) {
-            console.log(status)
             return blobToText(responseBlob).flatMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);

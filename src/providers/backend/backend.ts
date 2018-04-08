@@ -14,14 +14,13 @@ export class BackendProvider {
     }
 
     callBackend(base64image: string): void {
-        console.log('calling vision annotate');
         this.visionClient.visionAnnotate(new VisionRequestParams({imageContent: base64image}))
             .subscribe((visionResponse: VisionResponse) => {
                 this.onLoadingComplete.emit(visionResponse);
                 this.onError.emit(false);
-            }, (err: SwaggerException) => {
-                console.error(err);
-                const errMsg = JSON.parse(err.response) ? JSON.parse(err.response).error : 'An unexpected error occurred';
+            }, (error: SwaggerException) => {
+                console.error(error);
+                const errMsg = JSON.parse(error.response) ? JSON.parse(error.response).error : 'An unexpected error occurred';
                 this.onError.emit(true);
                 let toast = this.toastCtrl.create({
                     message: errMsg,
@@ -31,5 +30,13 @@ export class BackendProvider {
                 });
                 toast.present();
             });
+    }
+
+    private a(): void {
+      this.http.post("", {}, {}).subscribe(
+        (): void => {
+
+        }
+      );
     }
 }
