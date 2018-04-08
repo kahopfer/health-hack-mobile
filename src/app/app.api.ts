@@ -186,11 +186,13 @@ export interface IVisionRequestParams {
     imageContent: string;
 }
 
-export class WebDetectionResponse implements IWebDetectionResponse {
-    score?: number | null;
-    description?: string | null;
+export class LabelAnnotationsItemType implements ILabelAnnotationsItemType {
+    mid: string;
+    description: string;
+    score: number;
+    topicality: number;
 
-    constructor(data?: IWebDetectionResponse) {
+    constructor(data?: ILabelAnnotationsItemType) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -201,34 +203,40 @@ export class WebDetectionResponse implements IWebDetectionResponse {
 
     init(data?: any) {
         if (data) {
-            this.score = data["score"] !== undefined ? data["score"] : <any>null;
+            this.mid = data["mid"] !== undefined ? data["mid"] : <any>null;
             this.description = data["description"] !== undefined ? data["description"] : <any>null;
+            this.score = data["score"] !== undefined ? data["score"] : <any>null;
+            this.topicality = data["topicality"] !== undefined ? data["topicality"] : <any>null;
         }
     }
 
-    static fromJS(data: any): WebDetectionResponse {
+    static fromJS(data: any): LabelAnnotationsItemType {
         data = typeof data === 'object' ? data : {};
-        let result = new WebDetectionResponse();
+        let result = new LabelAnnotationsItemType();
         result.init(data);
         return result;
     }
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["score"] = this.score !== undefined ? this.score : <any>null;
+        data["mid"] = this.mid !== undefined ? this.mid : <any>null;
         data["description"] = this.description !== undefined ? this.description : <any>null;
+        data["score"] = this.score !== undefined ? this.score : <any>null;
+        data["topicality"] = this.topicality !== undefined ? this.topicality : <any>null;
         return data; 
     }
 }
 
-export interface IWebDetectionResponse {
-    score?: number | null;
-    description?: string | null;
+export interface ILabelAnnotationsItemType {
+    mid: string;
+    description: string;
+    score: number;
+    topicality: number;
 }
 
 export class VisionResponse implements IVisionResponse {
     text?: string | null;
-    webDetect?: WebDetectionResponse[] | null;
+    labels?: LabelAnnotationsItemType[] | null;
 
     constructor(data?: IVisionResponse) {
         if (data) {
@@ -242,10 +250,10 @@ export class VisionResponse implements IVisionResponse {
     init(data?: any) {
         if (data) {
             this.text = data["text"] !== undefined ? data["text"] : <any>null;
-            if (data["webDetect"] && data["webDetect"].constructor === Array) {
-                this.webDetect = [];
-                for (let item of data["webDetect"])
-                    this.webDetect.push(WebDetectionResponse.fromJS(item));
+            if (data["labels"] && data["labels"].constructor === Array) {
+                this.labels = [];
+                for (let item of data["labels"])
+                    this.labels.push(LabelAnnotationsItemType.fromJS(item));
             }
         }
     }
@@ -260,10 +268,10 @@ export class VisionResponse implements IVisionResponse {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["text"] = this.text !== undefined ? this.text : <any>null;
-        if (this.webDetect && this.webDetect.constructor === Array) {
-            data["webDetect"] = [];
-            for (let item of this.webDetect)
-                data["webDetect"].push(item.toJSON());
+        if (this.labels && this.labels.constructor === Array) {
+            data["labels"] = [];
+            for (let item of this.labels)
+                data["labels"].push(item.toJSON());
         }
         return data; 
     }
@@ -271,7 +279,7 @@ export class VisionResponse implements IVisionResponse {
 
 export interface IVisionResponse {
     text?: string | null;
-    webDetect?: WebDetectionResponse[] | null;
+    labels?: LabelAnnotationsItemType[] | null;
 }
 
 export class SwaggerException extends Error {
