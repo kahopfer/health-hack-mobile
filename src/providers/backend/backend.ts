@@ -14,6 +14,7 @@ export class BackendProvider {
   }
 
   callBackend(base64image: string): void {
+    console.log("calling vision annotate");
     this.visionClient.visionAnnotate(new VisionRequestParams({imageContent: base64image}))
       .subscribe((visionResponse: VisionResponse) => {
         this.onLoadingComplete.emit(visionResponse);

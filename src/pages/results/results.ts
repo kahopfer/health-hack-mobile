@@ -16,7 +16,6 @@ export class ResultsPage implements OnInit {
   descriptionRoot = 'DescriptionPage';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log("On results page");
     this.visionResponse = this.navParams.data.visionResponse;
   }
 

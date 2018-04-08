@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
 
   getImageFromCamera(): void {
     const cameraOptions: CameraOptions = {
-      quality: 100,
+      quality: 1,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
     const cameraOptions: CameraOptions = {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
-      quality: 100,
+      quality: 1,
       targetWidth: 1000,
       targetHeight: 1000,
       encodingType: this.camera.EncodingType.JPEG,
@@ -58,6 +58,7 @@ export class HomePage implements OnInit {
 
   sendToBackend(base64Image: string) {
     this.imageProvider.setImage(base64Image);
+    console.log("invoking backend function");
     this.backendProvider.callBackend(base64Image);
     this.navCtrl.setRoot(LoadingPage)
   }

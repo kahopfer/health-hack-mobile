@@ -41,14 +41,16 @@ export class VisionClient {
         let url_ = this.baseUrl + "/vision/annotate";
         url_ = url_.replace(/[?&]$/, "");
 
-        const content_ = JSON.stringify(visionRequestParams);
+      console.log(url_);
+
+      const content_ = JSON.stringify(visionRequestParams);
 
         let options_ : any = {
             body: content_,
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             })
         };
@@ -68,13 +70,15 @@ export class VisionClient {
     }
 
     protected processVisionAnnotate(response: HttpResponseBase): Observable<VisionResponse> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+      console.error(JSON.stringify(response));
+      const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
         if (status === 200) {
+            console.log(status)
             return blobToText(responseBlob).flatMap(_responseText => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
@@ -97,18 +101,18 @@ export class VisionClient {
         let url_ = this.baseUrl + "/vision/{id}?";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
-        url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
+        url_ = url_.replace("{id}", encodeURIComponent("" + id));
         if (responseType === undefined || responseType === null)
             throw new Error("The parameter 'responseType' must be defined and cannot be null.");
         else
-            url_ += "responseType=" + encodeURIComponent("" + responseType) + "&"; 
+            url_ += "responseType=" + encodeURIComponent("" + responseType) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
             observe: "response",
             responseType: "blob",
             headers: new HttpHeaders({
-                "Content-Type": "application/json", 
+                "Content-Type": "application/json",
                 "Accept": "application/json"
             })
         };
@@ -129,8 +133,8 @@ export class VisionClient {
 
     protected processGetResponse(response: HttpResponseBase): Observable<VisionResponse> {
         const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
@@ -178,7 +182,7 @@ export class VisionRequestParams implements IVisionRequestParams {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["imageContent"] = this.imageContent !== undefined ? this.imageContent : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -223,7 +227,7 @@ export class LabelAnnotationsItemType implements ILabelAnnotationsItemType {
         data["description"] = this.description !== undefined ? this.description : <any>null;
         data["score"] = this.score !== undefined ? this.score : <any>null;
         data["topicality"] = this.topicality !== undefined ? this.topicality : <any>null;
-        return data; 
+        return data;
     }
 }
 
@@ -273,7 +277,7 @@ export class VisionResponse implements IVisionResponse {
             for (let item of this.labels)
                 data["labels"].push(item.toJSON());
         }
-        return data; 
+        return data;
     }
 }
 
@@ -284,10 +288,10 @@ export interface IVisionResponse {
 
 export class SwaggerException extends Error {
     message: string;
-    status: number; 
-    response: string; 
+    status: number;
+    response: string;
     headers: { [key: string]: any; };
-    result: any; 
+    result: any;
 
     constructor(message: string, status: number, response: string, headers: { [key: string]: any; }, result: any) {
         super();
@@ -319,12 +323,12 @@ function blobToText(blob: any): Observable<string> {
             observer.next("");
             observer.complete();
         } else {
-            let reader = new FileReader(); 
-            reader.onload = function() { 
+            let reader = new FileReader();
+            reader.onload = function() {
                 observer.next(this.result);
                 observer.complete();
             }
-            reader.readAsText(blob); 
+            reader.readAsText(blob);
         }
     });
 }

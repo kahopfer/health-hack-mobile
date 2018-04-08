@@ -35,7 +35,7 @@ $colors: (
 }
 
 ion-content {
-  background:  linear-gradient(to bottom right, #89faff, grey);
+  background:  linear-gradient(to bottom right, #3bdbe7, #8B7EDA);
 }
 
 @mixin standard-color-cycle($colorizable-property, $requested-steps, $alpha) {
