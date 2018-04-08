@@ -81,7 +81,10 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <plugin name="cordova-plugin-camera" spec="^4.0.2" >
+      <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow the app to use your camera" />
+      <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos" />
+    </plugin>
     <engine name="ios" spec="~4.5.4" />
     <engine name="android" spec="~7.0.0" />
 </widget>
