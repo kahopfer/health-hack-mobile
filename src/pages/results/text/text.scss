@@ -1,14 +1,6 @@
-page-text {
-  ion-grid {
-    height: 50%;
-  }
-
-  .button-inner {
-    flex-flow: column;
-  }
-
+page-home {
   .mic-button {
-    display:inline-block;
+    display: inline-block;
     height: 85px;
     width: 85px;
     border-radius: 50%;
@@ -20,5 +12,10 @@ page-text {
 
   .mic-col {
     text-align: center;
+  }
+
+  .mic-row {
+    position: fixed;
+    bottom: 10px;
   }
 }

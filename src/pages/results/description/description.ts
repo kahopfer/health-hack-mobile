@@ -12,6 +12,9 @@ export class DescriptionPage implements OnInit {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.visionResponse = this.navParams.data;
+    this.visionResponse.labels.forEach(function (label) {
+      label.score = Math.round(label.score * 100 * 100) / 100
+    });
   }
 
   public ngOnInit(): void {

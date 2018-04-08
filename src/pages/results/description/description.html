@@ -8,7 +8,7 @@
     <ion-row>
       <ion-col col-12>
         <ng-container *ngFor="let label of visionResponse.labels">
-          <p>{{label.description}} {{label.score}}</p>
+          <p>{{label.description}} ({{label.score}} sure)</p>
         </ng-container>
       </ion-col>
     </ion-row>
