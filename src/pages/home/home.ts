@@ -59,14 +59,14 @@ export class HomePage implements OnInit {
   }
 
   sendToBackend(base64Image: string) {
-    this.base64ToGallery.base64ToGallery(base64Image).then(
-      (res: Response) => {
-        console.log('Saved image to gallery ', res)
-      },
-      (err: Error) => {
-        console.log('Error saving image to gallery ', err)
-      }
-    );
+    // this.base64ToGallery.base64ToGallery(base64Image).then(
+    //   (res: Response) => {
+    //     console.log('Saved image to gallery ', res)
+    //   },
+    //   (err: Error) => {
+    //     console.log('Error saving image to gallery ', err)
+    //   }
+    // );
 
     this.imageProvider.setImage(base64Image);
     console.log("invoking backend function");
