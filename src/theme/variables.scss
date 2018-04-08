@@ -27,6 +27,12 @@ $colors: (
 
 $tabs-ios-tab-icon-color: red;
 
+.toastCustom {
+  .toast-container{
+    background-color: #00adad;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

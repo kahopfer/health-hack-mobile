@@ -1,12 +1,7 @@
-<ion-content no-bounce padding>
-  <!--<div class="pictureFrame">-->
-    <!--<div class="picture">-->
-      <!--<img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>-->
-    <!--</div>-->
-  <!--</div>-->
-  <zoom-area>
-
-    <img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
-
-  </zoom-area>
+<ion-content padding no-bounce>
+  <div class="pictureFrame">
+    <div class="picture">
+      <img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
+    </div>
+  </div>
 </ion-content>

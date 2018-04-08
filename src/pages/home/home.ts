@@ -4,6 +4,7 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
 import {BackendProvider} from "../../providers/backend/backend";
 import {ImageProvider} from "../../providers/image/image";
 import {LoadingPage} from "../loading/loading";
+import {ResultsPage} from "../results/results";
 import {Base64ToGallery} from "@ionic-native/base64-to-gallery";
 
 @Component({
@@ -28,9 +29,10 @@ export class HomePage implements OnInit {
       quality: 1,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
     };
 
+    this.imageProvider.isCamera(true);
     this.camera.getPicture(cameraOptions).then(
       this.sendToBackend.bind(this),
       (error: Error): void => {
@@ -50,6 +52,7 @@ export class HomePage implements OnInit {
       correctOrientation: true
     };
 
+    this.imageProvider.isCamera(false);
     this.camera.getPicture(cameraOptions).then(
       this.sendToBackend.bind(this),
       (error: Error): void => {

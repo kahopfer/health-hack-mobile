@@ -1,8 +1,8 @@
 .picture {
-  //display: flex;
-  //justify-content: center;
-  //align-items: center;
-  //overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -10,8 +10,8 @@
 
 .pictureFrame {
   border: 5px solid lightblue;
-  background-color: lightgray;
-  //overflow: scroll;
+  background-color: #f1f1f1;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
