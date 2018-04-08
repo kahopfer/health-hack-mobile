@@ -26,7 +26,8 @@ export class HomePage implements OnInit {
       quality: 1,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      saveToPhotoAlbum: true
     };
 
     this.camera.getPicture(cameraOptions).then(
