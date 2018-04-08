@@ -52,5 +52,5 @@ export class AppModule {
 }
 
 export function baseUrl(): string {
-  return `https://hhstl2018-stl.herokuapp.com/api`;
+    return `https://hhstl2018-stl.herokuapp.com/api`;
 }
