@@ -4,6 +4,7 @@ import {Camera, CameraOptions} from "@ionic-native/camera";
 import {BackendProvider} from "../../providers/backend/backend";
 import {ImageProvider} from "../../providers/image/image";
 import {LoadingPage} from "../loading/loading";
+import {Base64ToGallery} from "@ionic-native/base64-to-gallery";
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,8 @@ export class HomePage implements OnInit {
   constructor(public navCtrl: NavController,
               private camera: Camera,
               private backendProvider: BackendProvider,
-              private imageProvider: ImageProvider) {
+              private imageProvider: ImageProvider,
+              private base64ToGallery: Base64ToGallery) {
   }
 
   public ngOnInit(): void {
@@ -57,6 +59,15 @@ export class HomePage implements OnInit {
   }
 
   sendToBackend(base64Image: string) {
+    this.base64ToGallery.base64ToGallery(base64Image, {prefix: '_img', mediaScanner: true}).then(
+      (res: Response) => {
+        console.log('Saved image to gallery ', res)
+      },
+      (err: Error) => {
+        console.log('Error saving image to gallery ', err)
+      }
+    );
+
     this.imageProvider.setImage(base64Image);
     console.log("invoking backend function");
     this.backendProvider.callBackend(base64Image);
