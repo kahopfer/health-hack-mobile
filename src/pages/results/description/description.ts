@@ -9,6 +9,7 @@ import {LabelAnnotationsItemType, VisionResponse} from "../../../app/app.api";
 })
 export class DescriptionPage implements OnInit {
   visionResponse: VisionResponse;
+  isSpeaking = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.visionResponse = this.navParams.data;
@@ -21,10 +22,16 @@ export class DescriptionPage implements OnInit {
   }
 
   public readLabels(): void {
-    this.visionResponse.labels.forEach(
-      (label: LabelAnnotationsItemType): void => {
-        (<any>window).speechSynthesis.speak(new SpeechSynthesisUtterance(label.description + ", " + label.score + "% sure."));
-      }
-    );
+    if (!this.isSpeaking) {
+      this.visionResponse.labels.forEach(
+        (label: LabelAnnotationsItemType): void => {
+          (<any>window).speechSynthesis.speak(new SpeechSynthesisUtterance(label.description + ", " + label.score + "% sure."));
+          this.isSpeaking = true;
+        }
+      );
+    }else{
+      (<any>window).speechSynthesis.cancel();
+      this.isSpeaking = false;
+    }
   }
 }
