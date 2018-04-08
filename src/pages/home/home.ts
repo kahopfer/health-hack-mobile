@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NavController } from 'ionic-angular';
-import { compressToUTF16 } from 'lz-string';
 import { BackendProvider } from '../../providers/backend/backend';
 import { ImageProvider } from '../../providers/image/image';
 import { LoadingPage } from '../loading/loading';
@@ -63,10 +62,9 @@ export class HomePage implements OnInit {
 
     sendToBackend(base64Image: string) {
         console.log('invoking backend function');
-        const compressedBase64 = compressToUTF16(base64Image);
         this.imageProvider.setImage(base64Image);
         console.log('invoking backend function');
-        this.backendProvider.callBackend(compressedBase64);
+        this.backendProvider.callBackend(base64Image);
         this.navCtrl.setRoot(LoadingPage);
     }
 }
