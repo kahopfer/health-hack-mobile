@@ -31,16 +31,16 @@ export class ImageProvider {
     if (this.latestImageBase64 === ""){
       throw "no image found";
     }else{
-      if (this.cameraPhoto) {
-        let toast = this.toastCtrl.create({
-          message: "Saved to camera roll!",
-          duration: 3000,
-          position: 'top',
-          showCloseButton: true,
-          cssClass: "toastCustom"
-        });
-        toast.present();
-      }
+      // if (this.cameraPhoto) {
+      //   let toast = this.toastCtrl.create({
+      //     message: "Saved to camera roll!",
+      //     duration: 3000,
+      //     position: 'top',
+      //     showCloseButton: true,
+      //     cssClass: "toastCustom"
+      //   });
+      //   toast.present();
+      // }
       return this.latestImageBase64;
     }
   }
