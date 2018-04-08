@@ -2,11 +2,15 @@
   color: white;
 }
 
+.image {
+  zoom: 500%;
+}
+
 .picture {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: scroll;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -15,7 +19,7 @@
 .pictureFrame {
    //border: 5px solid lightblue;
    //background-color: #f1f1f1;
-   overflow: hidden;
+   overflow: scroll;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -26,7 +30,7 @@
 .controlFrame {
   //border: 5px solid lightblue;
   //background-color: #f1f1f1;
-  overflow: hidden;
+  overflow: scroll;
   display: flex;
   justify-content: center;
   align-items: center;

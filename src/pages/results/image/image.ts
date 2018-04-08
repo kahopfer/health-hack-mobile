@@ -3,6 +3,7 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ImageProvider} from "../../../providers/image/image";
 import {DomSanitizer} from "@angular/platform-browser";
 import {VisionResponse} from "../../../app/app.api";
+
 declare let $: any;
 
 @IonicPage()
@@ -23,17 +24,21 @@ export class ImagePage implements OnInit {
   }
 
   public ngOnInit(): void {
-      this.base64Image = this.imageProvider.getImage();
+    this.base64Image = this.imageProvider.getImage();
   }
 
   zoomIn(): void {
-    console.log("yolo");
-    $('.image').animate({ 'zoom': this.currentZoom += .1 }, 'slow');
+    console.log("yolo " + this.currentZoom);
+    this.currentZoom += 0.1;
+    $('.image').animate({'zoom': this.currentZoom}, 'fast');
     console.log("hehe");
   }
 
   zoomOut(): void {
-    $('#divName').animate({ 'zoom': this.currentZoom -= .1 }, 'slow');
+    console.log("yolo " + this.currentZoom);
+    this.currentZoom -= 0.1;
+    $('.image').animate({'zoom': this.currentZoom}, 'fast');
+    console.log("hehe");
   }
 
 
