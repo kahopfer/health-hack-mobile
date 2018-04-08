@@ -15,6 +15,7 @@ import {LoadingPage} from "../pages/loading/loading";
 import {ResultsPageModule} from "../pages/results/results.module";
 import {HttpClientModule} from "@angular/common/http";
 import {Camera} from "@ionic-native/camera";
+import {Base64ToGallery} from "@ionic-native/base64-to-gallery";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {Camera} from "@ionic-native/camera";
     {provide: API_BASE_URL, useFactory: baseUrl}, Camera,
     BackendProvider,
     ImageProvider,
-    VisionClient
+    VisionClient,
+    Base64ToGallery
   ]
 })
 export class AppModule {
