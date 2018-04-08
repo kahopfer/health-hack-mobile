@@ -60,7 +60,7 @@ export class HomePage implements OnInit {
   }
 
   sendToBackend(base64Image: string) {
-    this.base64ToGallery.base64ToGallery(base64Image, {prefix: '_img', mediaScanner: true}).then(
+    this.base64ToGallery.base64ToGallery(base64Image).then(
       (res: Response) => {
         console.log('Saved image to gallery ', res)
       },
