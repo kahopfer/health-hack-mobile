@@ -8,7 +8,7 @@
     <ion-row>
       <ion-col col-12>
         <ng-container *ngFor="let webDetect of visionResponse.webDetect">
-          <p>We are {{webDetect.score}} percent sure this is a {{webDetect.description}}</p>
+          <p>{{webDetect.description}} ({{webDetect.score * 100}} sure)</p>
         </ng-container>
       </ion-col>
     </ion-row>
