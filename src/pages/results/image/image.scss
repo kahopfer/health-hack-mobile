@@ -2,15 +2,10 @@
   color: white;
 }
 
-.image {
-  zoom: 500%;
-}
-
 .picture {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -19,7 +14,6 @@
 .pictureFrame {
    //border: 5px solid lightblue;
    //background-color: #f1f1f1;
-   overflow: scroll;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -30,7 +24,6 @@
 .controlFrame {
   //border: 5px solid lightblue;
   //background-color: #f1f1f1;
-  overflow: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,10 +44,3 @@
   border-radius: 50%;
   background: linear-gradient(to bottom right, $secondary-1, $secondary-2) !important;
 }
-
-
-//.pictureFrame img {
-//  flex-shrink: 0;
-//  min-width: 100%;
-//  min-height: 100%;
-//}

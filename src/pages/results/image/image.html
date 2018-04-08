@@ -3,7 +3,7 @@
     <ion-row>
       <ion-col>
         <div class="picture">
-          <img class="image" [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
+          <img class="image" id="img" [height]="h" [width]="w" [src]="domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
         </div>
       </ion-col>
     </ion-row>

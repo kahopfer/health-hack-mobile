@@ -15,6 +15,9 @@ export class ImagePage implements OnInit {
   visionResponse: VisionResponse;
   base64Image: string;
   currentZoom = 1;
+  img: any;
+  h: number = 100;
+  w: number = 100;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -25,19 +28,31 @@ export class ImagePage implements OnInit {
 
   public ngOnInit(): void {
     this.base64Image = this.imageProvider.getImage();
+    setTimeout(
+      (): void => {
+        this.img = document.getElementById("img");
+        console.log(JSON.stringify(this.img.style));
+        // this.h = Number(this.img.style.height);
+        // this.w = Number(this.img.style.width);
+      },
+      500
+    );
   }
 
   zoomIn(): void {
-    console.log("yolo " + this.currentZoom);
-    this.currentZoom += 0.1;
-    $('.image').animate({'zoom': this.currentZoom}, 'fast');
-    console.log("hehe");
+    console.log("yolo " + this.h + ", " + this.w);
+    this.h = Math.ceil(this.h * 1.1);
+    this.w = Math.ceil(this.w * 1.1);
+    // this.img.style.height = this.h + "px";
+    // this.img.style.width = this.w + 'px';
   }
 
   zoomOut(): void {
-    console.log("yolo " + this.currentZoom);
-    this.currentZoom -= 0.1;
-    $('.image').animate({'zoom': this.currentZoom}, 'fast');
+    console.log("yolo " + this.h + ", " + this.w);
+    this.h = Math.ceil(this.h / 1.1);
+    this.w = Math.ceil(this.w / 1.1);
+    // this.img.style.height = this.h + "px";
+    // this.img.style.width = this.w + 'px';
     console.log("hehe");
   }
 
