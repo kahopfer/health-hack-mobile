@@ -9,15 +9,41 @@
 }
 
 .pictureFrame {
-  border: 5px solid lightblue;
-  background-color: #f1f1f1;
+   //border: 5px solid lightblue;
+   //background-color: #f1f1f1;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 80%;
+ }
+
+.controlFrame {
+  //border: 5px solid lightblue;
+  //background-color: #f1f1f1;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 20%;
 }
+
+.zoom-in-button {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #76d25b, #246bc5) !important;
+}
+
+.zoom-out-button {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #76d25b, #246bc5) !important;
+}
+
 
 //.pictureFrame img {
 //  flex-shrink: 0;

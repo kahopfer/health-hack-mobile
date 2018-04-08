@@ -1,7 +1,25 @@
 <ion-content padding no-bounce>
   <div class="pictureFrame">
-    <div class="picture">
-      <img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
-    </div>
+    <ion-row>
+      <ion-col>
+        <div class="picture">
+          <img [src] = "domSanitizationService.bypassSecurityTrustUrl(base64Image)"/>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="controlFrame">
+    <ion-row>
+      <ion-col text-wrap>
+        <button class="zoom-out-button" ion-button icon-only large (click)="readResponse();">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col text-wrap>
+        <button class="zoom-in-button" ion-button icon-only large (click)="readResponse();">
+          <ion-icon name="remove"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>

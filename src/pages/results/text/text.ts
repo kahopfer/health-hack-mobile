@@ -9,6 +9,7 @@ import {VisionResponse} from "../../../app/app.api";
 })
 export class TextPage implements OnInit {
   visionResponse: VisionResponse;
+  isSpeaking = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.visionResponse = this.navParams.data;
@@ -18,7 +19,13 @@ export class TextPage implements OnInit {
   }
 
   readResponse() {
-    let utterance = new SpeechSynthesisUtterance(this.visionResponse.text);
-    (<any>window).speechSynthesis.speak(utterance);
+    if (!this.isSpeaking) {
+      let utterance = new SpeechSynthesisUtterance(this.visionResponse.text);
+      (<any>window).speechSynthesis.speak(utterance);
+      this.isSpeaking = true;
+    }else{
+      (<any>window).speechSynthesis.cancel();
+      this.isSpeaking = false;
+    }
   }
 }
