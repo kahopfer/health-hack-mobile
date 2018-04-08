@@ -1,4 +1,4 @@
-<ion-content padding>
+<ion-content no-bounce padding>
   <ion-row>
     <ion-col col-12>
       <p>Text Found in Image:</p>
@@ -16,7 +16,7 @@
   </ion-row>
   <ion-row *ngIf="visionResponse.text !== ''">
     <div class="mic-row">
-      <ion-col class="mic-col">
+      <ion-col class="mic-col" text-wrap>
         <button class="mic-button" ion-button icon-only large (click)="readResponse();">
           <ion-icon class="mic-icon" name="mic"></ion-icon>
         </button>

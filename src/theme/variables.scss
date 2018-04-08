@@ -25,6 +25,8 @@ $colors: (
   display: inline-block;
 }
 
+$tabs-ios-tab-icon-color: red;
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -35,7 +37,7 @@ $colors: (
 }
 
 ion-content {
-  background:  linear-gradient(to bottom right, #3bdbe7, #8B7EDA);
+  background: linear-gradient(to bottom right, #3bdbe7, #8B7EDA);
 }
 
 @mixin standard-color-cycle($colorizable-property, $requested-steps, $alpha) {

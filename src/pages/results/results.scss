@@ -1,3 +1,10 @@
 page-results {
+  .tabbar {
+    background: linear-gradient(to bottom right, #76d25b, #246bc5) !important;
+    color: white !important;
+  }
 
+  a.tab-button * {
+    color: white !important;
+  }
 }
